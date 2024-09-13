@@ -94,3 +94,70 @@ func main() {
     fmt.Pringln(st2.a, st2.d)
 }
 ```
+
+構造体に別の構造体を埋め込む際には、例のように「型名」のみを指定する。（これを匿名フィールドと呼ぶ）
+
+埋め込んだ構造体のメンバは、自身のメンバの如く扱うことができるようになる。
+
+最後に、Go言語の構造体ではメンバに対してタグづけをすることができる。また、タグづけした値はreflectパッケージの機能を使って参照することができる。
+
+```go
+import (
+    "fmt"
+    "reflect"
+)
+
+type MyStruct struct {
+    a string `tag1:"value1" tag2:"value2"`
+    b int `tag3:"value3"`
+}
+
+func main() {
+    var st MyStruct
+    field1 := reflect.TypeOf(st).Filed(0)
+    field2 := reflect.TypeOf(st).Field(1)
+    fmt.Println(field1.Tag.Get("tag1")) // value1
+    fmt.Println(field2.Tag.Get("tag3")) // value3
+}
+```
+
+## ポインタ型
+
+Go言語にもポインタの概念がある。
+
+ポインタを扱うための型が「ポインタ型」であり、変数宣言の際に型名に "*" をつけて定義する。
+
+また、変数に "&" をつけると変数のアドレスを参照することができ、アドレスから変数の値を参照するには "*" を変数につける。
+
+なお、Go言語では「ポインタの値を演算して別アドレスにする」ようなことはできない。
+
+```go
+func main() {
+    // int型のポインタ変数
+    var p *int
+
+    // int型の変数
+    n := 10
+
+    // 変数nのアドレスを取得
+    p = &n
+
+    fmt.Println(p) // 0x116d006c (環境によって値は異なる)
+    fmt.Println(*p) // 10
+}
+```
+
+Go言語ではnew関数を使って動的にメモリを確保することができる。その際、確保したメモリのアドレスはポインタ型の変数に格納することができる。
+
+なお、new関数で割り当てたメモリは方ごとのゼロ値で初期化されている。
+
+```go
+func main() {
+    // 型を指定してメモリを割り当てる
+    var p *int = new(int)
+
+    fmt.Println(p) // 0x116da0bc (環境によって値は異なる)
+    fmt.Println(*p) // 0
+}
+```
+
