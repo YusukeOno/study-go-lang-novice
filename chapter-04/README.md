@@ -18,7 +18,11 @@ breakキーワードも存在し、これはswitch文そのものを抜けるよ
 
 ## 繰り返し
 
+繰り返しはfor文のみが存在する。他の言語でいうwhile文やforeach文は存在しないが、それらと同様の処理もfor文で実装する。
 
+- [example-for.go](./example-for.go)
+
+ループを抜けるには`break`、スキップするには`continue`を使用する。
 
 ## goto
 
