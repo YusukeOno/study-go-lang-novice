@@ -42,3 +42,23 @@ defer文を使うと、それを呼び出した関数が終了する際に実行
 - [example-defer.go](./example-defer.go)
 
 ## パニック
+
+Go言語には「パニック」というエラー処理の仕組みがある。
+
+パニックは処理を停止して関数の呼び出し元に戻る仕組みで、発生すると順番に関数の呼び出し元に戻り、main関数まで戻るとスタックトレースを出力してプログラムを終了させる。
+
+- [example-panic.go](./example-panic.go)
+
+```zsh
+> go run ./example-panic.go
+start
+sub start
+panic: パニック！
+
+goroutine 1 [running]:
+main.sub()
+        /Users/yusuke.ono/Develop/GitHub/study-go-lang-novice/chapter-05/example-panic.go:15 +0x64
+main.main()
+        /Users/yusuke.ono/Develop/GitHub/study-go-lang-novice/chapter-05/example-panic.go:9 +0x54
+exit status 2
+```
