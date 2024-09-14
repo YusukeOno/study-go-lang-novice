@@ -126,3 +126,8 @@ nilは「指し示す先がない」ことを表すための特別な値であ�
 
 Go言語には「null」は存在しない。
 
+## 型キャスト
+
+- [example-cast.go](./example-cast.go)
+
+以上
