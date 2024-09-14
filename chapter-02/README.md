@@ -128,7 +128,7 @@ func main() {
         c2 = 1
         c3 = c1
     )
-    fmt.Pringln(c1, c2, c3) // hoge 1 hoge
+    fmt.Println(c1, c2, c3) // hoge 1 hoge
 
     // iotaを使う定数
     const (
@@ -143,7 +143,7 @@ func main() {
         c10
     )
     fmt.Println(c4, c5, c6) // 0 1 2
-    fmt.Pringln(c7. c8. c9. c10) // 0 0 2 3
+    fmt.Println(c7. c8. c9. c10) // 0 0 2 3
 }
 ```
 
