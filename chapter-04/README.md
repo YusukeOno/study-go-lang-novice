@@ -26,6 +26,10 @@ breakキーワードも存在し、これはswitch文そのものを抜けるよ
 
 ## goto
 
+Go言語にもgotoはあるが、使用しない。
 
 ## 例外処理
 
+Go言語には「try〜catch〜finally」構文は存在しない。
+
+以上
