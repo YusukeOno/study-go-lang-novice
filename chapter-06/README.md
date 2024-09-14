@@ -21,3 +21,18 @@ Go言語のメソッドは「特定の型に関連づけられた関数」であ
 - [example-interface.go](./example-interface.go)
 
 ## エラーインタフェース
+
+Go言語にはエラー処理のための仕組みとしてエラーインタフェースが用意されている。
+
+```go
+type error interface {
+    Error() string
+}
+```
+
+エラーインタフェースは関数の戻り値として使用し、Errorメソッドでエラー内容を確認することができる。
+
+多くの組み込み関数はエラー時にエラーインタフェースを返却するように実装されており、もちろん自作の関数で利用することもできる。
+
+- [example-error-interface.go](./example-error-interface.go)
+- [example-error-handle.go](./example-error-handle.go)
